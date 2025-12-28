@@ -1,0 +1,243 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    line-height: 1.6;
+    /* background-color: red; */
+}
+
+.dashboard-container::-webkit-scrollbar {
+    display: none;
+}
+.dashboard-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    /* border: 2px solid red; */
+}
+
+
+/* Responsive Design */
+@media (max-width: 720px) {
+    html {
+        font-size: 12px;
+    }
+
+    .header-content {
+        /* flex-direction: column; */
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .header-title {
+        font-size: 1.6rem;
+    }
+
+    .dashboard-container {
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+
+    .welcome-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .dashboard-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .dashboard-card {
+        padding: 1.5rem;
+        flex: none;
+        width: 100%;
+        max-width: 500px;
+        min-height: 380px;
+    }
+
+    .card-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+
+    .stat-item {
+        min-height: 60px;
+        padding: 0.8rem 0.6rem;
+    }
+
+    .card-actions {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .action-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 250px) and (max-width: 460px) {
+    html {
+        font-size: 14px;
+    }
+
+    .header-content {
+        padding: 0 1rem;
+    }
+
+    .header-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-title {
+        font-size: 1.4rem;
+    }
+
+    .user-info {
+        text-align: center;
+    }
+
+    .logout-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .welcome-section {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+
+    .welcome-subtitle {
+        font-size: 1rem;
+    }
+
+    .dashboard-grid {
+        justify-content: center;
+    }
+
+    .dashboard-card {
+        padding: 1.25rem;
+        flex: 1 1 calc(50% - 1rem);
+        min-width: 280px;
+        max-width: 350px;
+        min-height: 400px;
+    }
+
+    .card-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.4rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+
+    .stat-item {
+        min-height: 65px;
+        padding: 0.8rem 0.6rem;
+    }
+
+    .card-actions {
+        gap: 0.6rem;
+    }
+
+    .action-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 250px) {
+    html {
+        font-size: 8px;
+    }
+
+    .header-content {
+        padding: 0 0.5rem;
+    }
+
+    .welcome-section {
+        padding: 1rem;
+    }
+
+    .dashboard-card {
+        padding: 1rem;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 3px solid transparent;
+    border-top: 3px solid var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+
+    .dashboard-card,
+    .welcome-section {
+        border: 2px solid var(--dark-gray);
+    }
+
+    .logout-btn {
+        border: 2px solid var(--white);
+    }
+}
+
+/* Focus styles for accessibility */
+.logout-btn:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
